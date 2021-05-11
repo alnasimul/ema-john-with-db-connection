@@ -3,7 +3,7 @@ import fakeData from '../../fakeData';
 
 const Manage = () => {
     const handleAddProduct = () => {
-        fetch('http://localhost:5000/addProduct',{
+        fetch('https://pacific-caverns-69184.herokuapp.com/addProduct',{
             method:'POST',
             headers:{
                 'Content-Type' : 'application/json'
