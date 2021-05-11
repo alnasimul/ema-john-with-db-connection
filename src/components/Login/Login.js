@@ -27,9 +27,6 @@ function Login() {
   const history = useHistory();
   const location = useLocation();
 
-  console.log(history);
-  console.log(location);
-  console.log(location.state);
 
   let { from } = location.state || { from: { pathname: "/" } };
 
@@ -38,6 +35,12 @@ function Login() {
       .then(res => {
         handelResponse(res, true);
       })
+
+      //
+
+    //signOut();
+
+
   }
 
   const fbSignIn = () => {
