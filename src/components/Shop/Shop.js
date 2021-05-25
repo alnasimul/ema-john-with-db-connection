@@ -18,7 +18,7 @@ const Shop = () => {
         console.log(search);
     }
     useEffect(()=>{
-        fetch('http://localhost:5000/products?search='+search )
+        fetch('https://pacific-caverns-69184.herokuapp.com/products?search='+search )
         .then(res => res.json())
         .then(data => {
             setProducts(data);
