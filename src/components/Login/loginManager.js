@@ -20,6 +20,7 @@ export const handleGoogleSignIn = () => {
         photo: photoURL,
         success: true
       };
+      setUserToken();
       return signedInUser;
     })
     .catch(err => {
@@ -113,5 +114,13 @@ const updateUserName = name => {
       console.log('username updated successfully')
     }).catch(function(error) {
       console.log(error)
+    });
+  }
+
+  const setUserToken = () => {
+    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+      sessionStorage.setItem('token', idToken)
+    }).catch(function(error) {
+      // Handle error
     });
   }

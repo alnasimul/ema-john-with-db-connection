@@ -11,14 +11,19 @@ const Shop = () => {
    // const first10 = fakeData.slice(0, 10);
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    const [search,setSearch] = useState('');
 
+    const handleSearch= event => {
+        setSearch(event.target.value);
+        console.log(search);
+    }
     useEffect(()=>{
-        fetch('https://pacific-caverns-69184.herokuapp.com/products')
+        fetch('http://localhost:5000/products?search='+search )
         .then(res => res.json())
         .then(data => {
             setProducts(data);
         })
-    },[])
+    },[search])
 
     useEffect(()=>{
         const savedCart = getDatabaseCart();
@@ -78,6 +83,9 @@ const Shop = () => {
     
     return (
         <div className="twin-container">
+            <div className="searchBox">
+                <input type="text" onBlur={handleSearch} className='form-control searchBox' placeholder='Search Product'/>
+            </div>
             <div className="product-container">
 
                 {/* {console.log(products)} */}
